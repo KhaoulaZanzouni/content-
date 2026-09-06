@@ -6,167 +6,400 @@
 
 <title>Activer Option TikTok</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
+*{
+    box-sizing:border-box;
+}
+
+html,
 body{
-margin:0;
-font-family:'Inter',sans-serif;
-background:#0f172a;
+    margin:0;
+    padding:0;
+    width:100%;
+    min-height:100%;
 }
 
-/* contenu verrouillé */
+body{
+    font-family:'Inter',sans-serif;
+    background:#0f172a;
+}
+
+/* =========================
+   CONTENU VERROUILLÉ
+========================= */
+
 #content-to-lock{
-filter:blur(8px);
-pointer-events:none;
-user-select:none;
-padding:40px;
-color:white;
+    min-height:100vh;
+    padding:40px;
+    color:white;
+    filter:blur(8px);
+    pointer-events:none;
+    user-select:none;
 }
 
-/* overlay */
+/* =========================
+   OVERLAY
+========================= */
+
 #lockerWrapper{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-display:flex;
-justify-content:center;
-align-items:center;
-background:rgba(0,0,0,0.85);
-z-index:9999;
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    background:rgba(0,0,0,.82);
+
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+
+    z-index:9999;
+
+    overflow-y:auto;
 }
 
-/* card */
-.locker-card{
+/* =========================
+   CARD
+========================= */
 
-background:white;
-width:100%;
-max-width:420px;
-border-radius:20px;
-padding:35px;
-text-align:center;
-box-shadow:0 20px 60px rgba(0,0,0,0.5);
-animation:popup 0.4s ease;
+.locker-card{
+    width:100%;
+    max-width:430px;
+
+    background:#ffffff;
+
+    border-radius:24px;
+
+    padding:30px 25px 22px;
+
+    text-align:center;
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.45);
+
+    animation:popup .35s ease;
+
+    position:relative;
 }
 
 @keyframes popup{
-from{transform:scale(.8);opacity:0}
-to{transform:scale(1);opacity:1}
+
+    from{
+        transform:translateY(20px) scale(.96);
+        opacity:0;
+    }
+
+    to{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+
 }
 
-/* tiktok logo */
+/* =========================
+   TIKTOK LOGO
+========================= */
 
 .tiktok-logo{
+    width:65px;
+    height:65px;
 
-width:55px;
-display:block;
-margin:40px auto 10px auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
+    margin:0 auto 15px;
+
+    border-radius:18px;
+
+    background:#000;
+
+    box-shadow:
+        5px 5px 0 #25f4ee,
+        -4px -4px 0 #fe2c55;
 }
 
-/* title */
+/* icône musicale */
+
+.tiktok-logo svg{
+    width:34px;
+    height:40px;
+
+    fill:white;
+}
+
+/* =========================
+   HEADER
+========================= */
 
 .locker-header h2{
+    margin:0 0 10px;
 
-margin:10px 0;
-font-size:24px;
-color:#111827;
+    font-size:25px;
+    line-height:1.25;
 
+    font-weight:800;
+
+    color:#111827;
 }
 
 .locker-header p{
+    margin:0 auto 25px;
 
-color:#6b7280;
-font-size:14px;
-line-height:1.6;
-margin-bottom:25px;
+    max-width:360px;
 
+    color:#6b7280;
+
+    font-size:13.5px;
+    line-height:1.65;
 }
 
-/* offers */
+/* =========================
+   OFFERS
+========================= */
 
 #offerContainer{
 
-display:flex;
-flex-direction:column;
-gap:12px;
+    display:flex;
 
+    flex-direction:column;
+
+    gap:12px;
 }
+
+/* =========================
+   OFFER ITEM
+========================= */
 
 .offer-item{
 
-display:flex;
-align-items:center;
-padding:12px;
-border-radius:12px;
-background:#f1f5f9;
-border:1px solid #e2e8f0;
-text-decoration:none;
-transition:0.2s;
+    display:flex;
 
+    align-items:center;
+
+    width:100%;
+
+    padding:13px;
+
+    border-radius:15px;
+
+    background:#f8fafc;
+
+    border:1px solid #e5e7eb;
+
+    text-decoration:none;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease,
+        background .2s ease;
 }
 
 .offer-item:hover{
 
-transform:scale(1.03);
-border-color:#ff0050;
-background:#fff;
+    transform:translateY(-2px);
 
+    background:#ffffff;
+
+    border-color:#ff2d55;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.08);
 }
+
+/* =========================
+   OFFER ICON
+========================= */
 
 .offer-icon{
 
-width:45px;
-height:45px;
-border-radius:10px;
-margin-right:12px;
+    width:46px;
+    height:46px;
 
+    flex-shrink:0;
+
+    border-radius:12px;
+
+    object-fit:cover;
+
+    margin-right:12px;
+
+    background:#e5e7eb;
 }
+
+/* =========================
+   OFFER DETAILS
+========================= */
 
 .offer-details{
 
-flex:1;
-text-align:left;
+    flex:1;
 
+    min-width:0;
+
+    text-align:left;
 }
 
 .offer-name{
 
-font-weight:600;
-font-size:14px;
-color:#111827;
-display:block;
+    display:block;
 
+    margin-bottom:4px;
+
+    color:#111827;
+
+    font-size:13.5px;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
 }
 
 .offer-desc{
 
-font-size:12px;
-color:#6b7280;
+    display:block;
 
+    color:#6b7280;
+
+    font-size:11.5px;
+
+    line-height:1.4;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
 }
+
+/* =========================
+   BUTTON
+========================= */
 
 .offer-action{
 
-background:#ff0050;
-color:white;
-font-size:12px;
-padding:6px 10px;
-border-radius:8px;
-font-weight:600;
+    flex-shrink:0;
+
+    margin-left:8px;
+
+    padding:8px 12px;
+
+    border-radius:9px;
+
+    background:#ff0050;
+
+    color:white;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:.2px;
+
+    transition:.2s;
+}
+
+.offer-item:hover .offer-action{
+
+    background:#e60046;
 
 }
 
-/* footer */
+/* =========================
+   LOADING
+========================= */
+
+.loading{
+
+    padding:18px;
+
+    color:#6b7280;
+
+    font-size:13px;
+
+    background:#f8fafc;
+
+    border-radius:14px;
+
+    border:1px solid #e5e7eb;
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 .locker-footer{
 
-margin-top:20px;
-font-size:12px;
-color:#9ca3af;
+    margin-top:18px;
+
+    padding-top:15px;
+
+    border-top:1px solid #f1f5f9;
+
+    color:#9ca3af;
+
+    font-size:11px;
+
+    line-height:1.5;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:480px){
+
+    #lockerWrapper{
+        padding:12px;
+    }
+
+    .locker-card{
+        padding:25px 17px 18px;
+
+        border-radius:20px;
+    }
+
+    .locker-header h2{
+        font-size:22px;
+    }
+
+    .locker-header p{
+        font-size:12.5px;
+    }
+
+    .offer-item{
+        padding:10px;
+    }
+
+    .offer-icon{
+        width:42px;
+        height:42px;
+        margin-right:9px;
+    }
+
+    .offer-name{
+        font-size:12.5px;
+    }
+
+    .offer-desc{
+        font-size:10.5px;
+    }
+
+    .offer-action{
+        padding:7px 9px;
+        font-size:10px;
+    }
 
 }
 
@@ -176,107 +409,184 @@ color:#9ca3af;
 
 <body>
 
+
+<!-- =========================
+     CONTENU À VERROUILLER
+========================= -->
+
 <div id="content-to-lock">
 
-<h1>Contenu Premium</h1>
-<p>Ce contenu est réservé aux utilisateurs vérifiés.</p>
+    <h1>Contenu Premium</h1>
+
+    <p>
+        Ce contenu est réservé aux utilisateurs vérifiés.
+    </p>
 
 </div>
+
+
+<!-- =========================
+     LOCKER
+========================= -->
 
 <div id="lockerWrapper">
 
-<div class="locker-card">
+    <div class="locker-card">
 
-<div class="locker-header">
+        <div class="locker-header">
 
-<img class="tiktok-logo" src="https://tokactiv.com/assets/tiktok-logo-mIuVRUT4.png">
+            <!-- LOGO TIKTOK SANS IMAGE EXTERNE -->
+            <div class="tiktok-logo">
 
-<h2>Activer Option TikTok</h2>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M16.5 3c.3 1.8 1.3 3.2 3 4.1v2.7c-1.3-.1-2.5-.5-3.6-1.2v6.8c0 4.1-3 6.6-6.5 6.6-3.1 0-5.4-2.2-5.4-5.1 0-3.2 2.7-5.5 6-5.5.4 0 .8 0 1.2.1v2.9c-.4-.1-.8-.2-1.2-.2-1.6 0-2.8 1-2.8 2.5 0 1.3 1 2.3 2.3 2.3 1.6 0 2.9-1 2.9-3.2V3h4.1z"/>
+                </svg>
 
-<p>
-Pour continuer, effectuez seulement 2 à 3 activités simples et lisez les instructions fournies pour chacune ci-dessous afin de vérifier que vous n’êtes pas un robot.
-</p>
+            </div>
+
+
+            <h2>
+                Activer Option TikTok
+            </h2>
+
+
+            <p>
+                Pour continuer, effectuez seulement
+                <strong>2 à 3 activités simples</strong>
+                et suivez les instructions de chacune
+                pour vérifier que vous n’êtes pas un robot.
+            </p>
+
+        </div>
+
+
+        <!-- OFFRES -->
+
+        <div id="offerContainer">
+
+            <div class="loading">
+                Chargement des offres...
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <div class="locker-footer">
+
+            Veuillez compléter une offre pour continuer.
+
+        </div>
+
+    </div>
 
 </div>
 
-<div id="offerContainer">
-
-<div style="padding:20px;color:#6b7280;">
-Chargement des offres...
-</div>
-
-</div>
-
-<div class="locker-footer">
-
-Veuillez compléter une offre pour continuer.
-
-</div>
-
-</div>
-
-</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 
 <script>
 
 $(function(){
 
-const userId='491892'
-const apiKey='97683b9cfc2ccd71fd81a9818dc5f523'
+    const userId = '491892';
 
-const apiUrl=`https://d2dzcaq3bhqk1m.cloudfront.net/public/offers/feed.php?user_id=${userId}&api_key=${apiKey}&callback=?`
+    const apiKey = '97683b9cfc2ccd71fd81a9818dc5f523';
 
-$.getJSON(apiUrl,function(offers){
+    const apiUrl =
+        `https://d2dzcaq3bhqk1m.cloudfront.net/public/offers/feed.php?user_id=${userId}&api_key=${apiKey}&callback=?`;
 
-let html=""
 
-let numOffers=3
+    $.getJSON(apiUrl, function(offers){
 
-let limitedOffers=offers.slice(0,numOffers)
+        let html = "";
 
-if(limitedOffers.length>0){
+        const numOffers = 3;
 
-$("#offerContainer").html("")
+        const limitedOffers = offers.slice(0, numOffers);
 
-$.each(limitedOffers,function(key,offer){
 
-let icon=offer.network_icon?offer.network_icon:"https://via.placeholder.com/50"
+        if(limitedOffers.length > 0){
 
-html+=`
+            $("#offerContainer").html("");
 
-<a href="${offer.url}" target="_blank" class="offer-item">
 
-<img src="${icon}" class="offer-icon">
+            $.each(limitedOffers, function(key, offer){
 
-<div class="offer-details">
+                const icon =
+                    offer.network_icon ||
+                    "https://via.placeholder.com/50";
 
-<span class="offer-name">${offer.name}</span>
 
-<span class="offer-desc">${offer.conversion}</span>
+                html += `
 
-</div>
+                    <a
+                        href="${offer.url}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="offer-item"
+                    >
 
-<div class="offer-action">ACTIVER</div>
+                        <img
+                            src="${icon}"
+                            class="offer-icon"
+                            alt=""
+                        >
 
-</a>
 
-`
+                        <div class="offer-details">
 
-})
+                            <span class="offer-name">
+                                ${offer.name}
+                            </span>
 
-$("#offerContainer").append(html)
+                            <span class="offer-desc">
+                                ${offer.conversion}
+                            </span>
 
-}else{
+                        </div>
 
-$("#offerContainer").html("<p>Aucune offre disponible pour votre pays.</p>")
 
-}
+                        <div class="offer-action">
+                            ACTIVER
+                        </div>
 
-})
+                    </a>
 
-})
+                `;
+
+            });
+
+
+            $("#offerContainer").append(html);
+
+        }
+
+        else{
+
+            $("#offerContainer").html(`
+                <div class="loading">
+                    Aucune offre disponible pour votre pays.
+                </div>
+            `);
+
+        }
+
+    })
+
+    .fail(function(){
+
+        $("#offerContainer").html(`
+            <div class="loading">
+                Impossible de charger les offres.
+            </div>
+        `);
+
+    });
+
+});
 
 </script>
 
